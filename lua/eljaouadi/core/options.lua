@@ -1,5 +1,9 @@
 vim.cmd("let g:netrw_liststyle = 3")
 
+vim.scriptencoding = "utf-8"
+vim.opt.encoding = "utf-8"
+vim.opt.fileencoding = "utf-8"
+
 local opt = vim.opt -- for conciseness
 
 -- line numbers
