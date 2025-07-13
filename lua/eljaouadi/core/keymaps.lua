@@ -30,3 +30,23 @@ keymap.set("n", "<leader>tx", "<cmd>tabclose<CR>", { desc = "Close current tab" 
 keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" }) --  go to next tab
 keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" }) --  go to previous tab
 keymap.set("n", "<leader>tb", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tab
+
+
+-- █ FUNCTION TO TOGGLE ARABIC RTL MODE
+-- ─────────────────────────────────────
+local function toggle_arabic_mode()
+  if vim.opt.rightleft:get() then
+    -- Turn OFF RTL mode
+    vim.opt.rightleft = false
+    vim.opt.relativenumber = true -- Restore relative numbers if you use them
+    vim.notify("RTL Mode: OFF", vim.log.levels.INFO, { title = "Layout" })
+  else
+    -- Turn ON RTL mode
+    vim.opt.rightleft = true
+    vim.opt.relativenumber = false -- Relative numbers are confusing in RTL
+    vim.notify("RTL Mode: ON", vim.log.levels.INFO, { title = "Layout" })
+  end
+end
+
+
+keymap.set('n', '<F2>', toggle_arabic_mode, { noremap = true, silent = true, desc = "Toggle RTL layout for Arabic" })

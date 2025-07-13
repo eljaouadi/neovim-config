@@ -1,4 +1,8 @@
+-- lua/eljaouadi/lazy.lua
+
+-- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
     "git",
@@ -9,12 +13,15 @@ if not vim.loop.fs_stat(lazypath) then
     lazypath,
   })
 end
+
 vim.opt.rtp:prepend(lazypath)
 
+-- Setup plugins
 require("lazy").setup({
+  "nvim-lua/plenary.nvim",
+  "christoomey/vim-tmux-navigator",
 
   { import = "eljaouadi.plugins" },
-  { import = "eljaouadi.plugins.lsp" },
 }, {
   checker = {
     enabled = true,

@@ -4,6 +4,7 @@ return {
   "neovim/nvim-lspconfig",
   event = { "BufReadPre", "BufNewFile" },
   dependencies = {
+    "williamboman/mason-lspconfig.nvim",
     "hrsh7th/cmp-nvim-lsp",
     { "antosha417/nvim-lsp-file-operations", config = true },
     { "folke/neodev.nvim", opts = {} },
@@ -207,11 +208,10 @@ return {
               },
               environment = {
                 includePaths = {
-                  "/Users/eljaouadi/.composer/vendor/php-stubs/",
-                  "/Users/eljaouadi/.composer/vendor/wpsyntex/",
+                  vim.fn.expand("~") .. "/.composer/vendor/php-stubs/",
+                  vim.fn.expand("~") .. "/.composer/vendor/wpsyntex/",
                 },
               },
-
               filetypes = { "php", "blade" },
               files = {
                 associations = { "*.php", "*.blade.php" }, -- Associating .blade.php files as well
