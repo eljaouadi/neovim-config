@@ -50,5 +50,5 @@ opt.swapfile = false
 
 -- █ ARABIC LANGUAGE SUPPORT
 -- ──────────────────────────
-opt.arabic = true        -- Enable Arabic-specific handling.
+-- opt.arabic = true        -- Enable Arabic-specific handling.
 opt.arabicshape = true   -- CRUCIAL: Ensures letters connect and shape correctly.

@@ -35,7 +35,6 @@ return {
         "cssmodules_ls",
         "eslint",
         "tailwindcss",
-        "svelte",
         "lua_ls",
         "graphql",
         "emmet_ls",
