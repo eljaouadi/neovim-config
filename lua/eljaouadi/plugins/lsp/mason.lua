@@ -1,3 +1,5 @@
+-- ~/.config/nvim/lua/eljaouadi/plugins/lsp/mason.lua
+
 return {
   "williamboman/mason.nvim",
   dependencies = {
@@ -7,10 +9,6 @@ return {
   config = function()
     -- import mason
     local mason = require("mason")
-
-    -- import mason-lspconfig
-    local mason_lspconfig = require("mason-lspconfig")
-
     local mason_tool_installer = require("mason-tool-installer")
 
     -- enable mason and configure icons
@@ -24,36 +22,20 @@ return {
       },
     })
 
-    mason_lspconfig.setup({
-      -- list of servers for mason to install
-      ensure_installed = {
-        "astro",
-        -- "tsserver",
-        "html",
-        "cssls",
-        "jsonls",
-        "cssmodules_ls",
-        "eslint",
-        "tailwindcss",
-        "lua_ls",
-        "graphql",
-        "emmet_ls",
-        "prismals",
-        "pyright",
-        "intelephense", -- PHP LSP
-      },
-    })
-
+    -- This now only handles formatters and linters, not LSPs
     mason_tool_installer.setup({
       ensure_installed = {
-        "prettier", -- prettier formatter
-        "stylua", -- lua formatter
-        "isort", -- python formatter
-        "black", -- python formatter
-        "pylint", -- python linter
-        "eslint_d", -- js linter
-        "phpcs", -- PHP linter (WordPress coding standards)
+        -- Formatters
+        "prettier",
+        "stylua",
+        "isort",
+        "black",
         "phpcbf", -- PHP code beautifier (WordPress coding standards)
+
+        -- Linters
+        "pylint",
+        "eslint_d",
+        "phpcs", -- PHP linter (WordPress coding standards)
       },
     })
   end,
